@@ -4,11 +4,11 @@
 
 echo "Providing R libraries"
 
-sudo DEBIAN_FRONTEND=noninteractive apt-get -qqy install r-base r-base-dev
+sudo apt install r-base r-base-dev
 
 sudo R CMD javareconf
 
-sudo DEBIAN_FRONTEND=noninteractive apt-get -qqy install \
+sudo apt install \
 	r-cran-zoo r-cran-xts \
 	r-cran-xtable r-cran-reshape r-cran-stringr r-cran-scales \
 	r-cran-scales r-cran-rmysql r-cran-rcurl r-cran-mgcv \
@@ -16,4 +16,5 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -qqy install \
 
 echo "Providing R libraries - packages.r"
 
+# install this script manually
 sudo Rscript packages.r

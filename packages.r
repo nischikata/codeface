@@ -49,7 +49,7 @@ reinstall.package.from.github <- function(package, url) {
     }
 
     ## Re-install packages
-    devtools::install_github(url, quiet=T)
+    devtools::install_github(url, quiet=F)
 }
 
 library(parallel)
@@ -81,7 +81,8 @@ p <- filter.installed.packages(c("statnet", "tm", "optparse", "arules", "data.ta
                                  "corrgram", "logging", "png", "rjson", "lsa", "RJSONIO",
                                  "GGally", "corrplot", "psych", "markovchain", "hashmap"))
 if(length(p) > 0) {
-    install.packages(p, dependencies=T, verbose=F, quiet=T, Ncpus=num.cores)
+    install.packages(p, dependencies=T, verbose=T, quiet=F, Ncpus=num.cores,
+    repos="http://cran.rstudio.com/")
 }
 
 ## Install following packages from different sources
